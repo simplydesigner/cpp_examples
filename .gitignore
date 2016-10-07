@@ -7,5 +7,4 @@ tags
 
 Podfile.lock
 Pods/
-*.xcworkspace
 xcuserdata/

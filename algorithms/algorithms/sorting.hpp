@@ -1,10 +1,11 @@
-#ifndef insertion_sort_hpp
-#define insertion_sort_hpp
+#ifndef sorting_hpp
+#define sorting_hpp
 
 #include <cstddef>
 #include <vector>
 
 namespace ns_sorting {
+
     template<typename T>
     void insertion_sort(std::vector<T>& items) {
         std::size_t size = items.size();
@@ -20,4 +21,4 @@ namespace ns_sorting {
     }
 }
 
-#endif /* insertion_sort_hpp */
+#endif /* sorting_hpp */
