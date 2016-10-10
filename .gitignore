@@ -1,10 +1,6 @@
 .DS_Store
 
-.theos
 tags
 *.swp
-*.deb
 
-Podfile.lock
-Pods/
-xcuserdata/
+build/
