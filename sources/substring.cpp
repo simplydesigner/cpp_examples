@@ -5,28 +5,28 @@
 #include <vector>
 
 namespace ns_substring {
-namespace ns_brute_force {
-    const char* strstr(const char* s, const char* p) {
-        assert(s != nullptr);
-        assert(p != nullptr);
+	namespace ns_brute_force {
+		const char* strstr(const char* s, const char* p) {
+			assert(s != nullptr);
+			assert(p != nullptr);
 
-        std::size_t len_s = std::strlen(s);
-        std::size_t len_p = std::strlen(p);
+			std::size_t len_s = std::strlen(s);
+			std::size_t len_p = std::strlen(p);
 
-        if (len_s >= len_p && len_p != 0)
-        {
-            for(std::size_t i = 0, j = 0; i <= len_s - len_p; ++i, j = 0) {
-                for(; j <= len_p; ++j)
-                    if (s[i + j] != p[j])
-                        break;
-                if (j == len_p)
-                    return s + i;
-            }
-        }
+			if (len_s >= len_p && len_p != 0)
+			{
+				for(std::size_t i = 0, j = 0; i <= len_s - len_p; ++i, j = 0) {
+					for(; j <= len_p; ++j)
+						if (s[i + j] != p[j])
+							break;
+					if (j == len_p)
+						return s + i;
+				}
+			}
 
-        return nullptr;
-    }
-}
+			return nullptr;
+		}
+	}
 
     namespace ns_kmp {
         namespace {
