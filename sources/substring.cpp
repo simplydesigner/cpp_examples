@@ -15,7 +15,7 @@ namespace ns_substring {
 
 			if (len_s >= len_p && len_p != 0) {
 				for(std::size_t i = 0, j = 0; i <= len_s - len_p; ++i, j = 0) {
-					for(; j <= len_p; ++j)
+					for(; j < len_p; ++j)
 						if (s[i + j] != p[j])
 							break;
 					if (j == len_p)
