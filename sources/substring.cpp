@@ -13,8 +13,7 @@ namespace ns_substring {
 			std::size_t len_s = std::strlen(s);
 			std::size_t len_p = std::strlen(p);
 
-			if (len_s >= len_p && len_p != 0)
-			{
+			if (len_s >= len_p && len_p != 0) {
 				for(std::size_t i = 0, j = 0; i <= len_s - len_p; ++i, j = 0) {
 					for(; j <= len_p; ++j)
 						if (s[i + j] != p[j])
@@ -54,16 +53,19 @@ namespace ns_substring {
             assert(s != nullptr);
             assert(p != nullptr);
 
-            auto pi = compute_prefix_function(p);
-            std::size_t len_p = pi.size();
+            std::size_t len_p = std::strlen(p);
 
-            for(std::size_t i = 0, j = 0; s[i]; ++i) {
-                while((j > 0) && (s[i] != p[j]))
-                    j = pi[j - 1];
-                if (s[i] == p[j])
-                    ++j;
-                if (j == len_p)
-                    return s + (i - len_p + 1);
+            if (len_p != 0) {
+                auto pi = compute_prefix_function(p);
+
+                for(std::size_t i = 0, j = 0; s[i]; ++i) {
+                    while((j > 0) && (s[i] != p[j]))
+                        j = pi[j - 1];
+                    if (s[i] == p[j])
+                        ++j;
+                    if (j == len_p)
+                        return s + (i - len_p + 1);
+                }
             }
 
             return nullptr;
