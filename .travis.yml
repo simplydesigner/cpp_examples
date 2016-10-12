@@ -1,10 +1,11 @@
+dist: precise
 language: cpp
 
 addons:
     apt:
         packages:
-            - gcc-4.9
-            - gcc-5
+            - g++-4.9
+            - g++-5
             - clang-3.7
             - cmake
         sources:
@@ -14,22 +15,16 @@ addons:
 matrix:
     include:
         - os: osx
-          compiler: clang-3.7
-          env: CLANG_VERSION=3.7
+          compiler: clang
+          env: COMPILER=clang++-3.6
         - os: linux
-          env: GCC_VERSION=4.9
+          compiler: gcc
+          env: COMPILER=g++-4.9
         - os: linux
-          env: GCC_VERSION=5
+          compiler: gcc
+          env: COMPILER=g++-5
 
 install:
-    - |
-      if [[ -n "$CLANG_VERSION" ]]; then
-        export CXX=clang++-$CLANG_VERSION CC=clang-$CLANG_VERSION;
-      fi
-    - |
-      if [[ -n "$GCC_VERSION" ]];
-        then export CXX=g++-$GCC_VERSION CC=gcc-$GCC_VERSION;
-      fi
     - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
     - mkdir -p "${DEPS_DIR}"
     - cd "${DEPS_DIR}"
@@ -50,6 +45,6 @@ script:
     - BUILD_DIR="${TRAVIS_BUILD_DIR}/build"
     - mkdir -p "${BUILD_DIR}"
     - cd "${BUILD_DIR}"
-    - cmake ..
+    - cmake -DCMAKE_CXX_COMPILER=$COMPILER ..
     - make 
     - make test ARGS="-VV"
