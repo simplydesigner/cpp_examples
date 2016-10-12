@@ -38,8 +38,9 @@ install:
       fi
 
 script:
-    - mkdir -p build
-    - cd build
+    - BUILD_DIR="${TRAVIS_BUILD_DIR}/build"
+    - mkdir -p "${BUILD_DIR}"
+    - cd "${BUILD_DIR}"
     - cmake ..
     - make 
     - make test ARGS="-VV"
