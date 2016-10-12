@@ -16,7 +16,7 @@ matrix:
     include:
         - os: osx
           compiler: clang
-          env: COMPILER=clang++-3.6
+          env: COMPILER=clang++-3.7
         - os: linux
           compiler: gcc
           env: COMPILER=g++-4.9
