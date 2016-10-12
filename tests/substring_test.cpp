@@ -1,6 +1,6 @@
 #include <catch.hpp>
 #include <cstddef>
-#include <string>
+#include <cstring>
 #include "algorithms/substring.hpp"
 
 namespace ns_substring {
