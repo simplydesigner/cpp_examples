@@ -20,7 +20,7 @@ ExternalProject_Get_Property(catch source_dir)
 set(CATCH_INCLUDE_DIR ${source_dir}/include CACHE INTERNAL "Path to include folder for Catch")
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS "-fdiagnostics-color")
+set(CMAKE_CXX_FLAGS "-fdiagnostics-color=always")
 include_directories("include")
 add_subdirectory(sources)
 include_directories(${CATCH_INCLUDE_DIR})
