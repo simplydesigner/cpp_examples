@@ -1,5 +1,6 @@
 #include <catch.hpp>
 #include <cstddef>
+#include <string>
 #include "algorithms/substring.hpp"
 
 namespace ns_substring {
@@ -37,6 +38,10 @@ namespace ns_substring {
         REQUIRE_NOTHROW(substring = strstr("", substring_no));
         REQUIRE(substring == nullptr);
         REQUIRE_NOTHROW(substring = strstr(bigstring, ""));
+        REQUIRE(substring == nullptr);
+
+        REQUIRE(std::strlen(substring_no) < std::strlen(bigstring));
+        REQUIRE_NOTHROW(substring = strstr(substring_no, bigstring));
         REQUIRE(substring == nullptr);
     }
 
