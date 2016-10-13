@@ -2,9 +2,12 @@
 #define memory_test_hpp
 
 namespace ns_memory {
+
     class object final {
+    private:
+        bool& alive_;
     public:
-         object();
+         object(bool& alive);
         ~object();
     };
 }
