@@ -1,13 +1,13 @@
 dist: precise
 language: generic
 
-addons:
-    apt:
-        packages:
-            - g++-4.9
-            - g++-5
-        sources:
-            - ubuntu-toolchain-r-test
+#addons:
+#    apt:
+#        packages:
+#            - g++-4.9
+#            - g++-5
+#        sources:
+#            - ubuntu-toolchain-r-test
 
 matrix:
   include:
