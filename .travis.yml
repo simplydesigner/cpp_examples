@@ -8,13 +8,21 @@ matrix:
       addons:
         apt:
           source: &sources
+            - llvm-toolchain-trusty-3.9
             - llvm-toolchain-trusty-3.8
-            - llvm-toolchain-trusty-3.7
-            - llvm-toolchain-trusty-3.6
+            - llvm-toolchain-trusty
             - ubuntu-toolchain-r-test
           packages:
             - gcc-5
             - g++-5
+
+    - os: linux
+      env: COMPILER_NAME=clang CXX=clang++-3.9 CC=clang-3.9
+      addons:
+        apt:
+          sources: *sources
+          packages:
+            - clang-3.9
 
     - os: linux
       env: COMPILER_NAME=clang CXX=clang++-3.8 CC=clang-3.8
@@ -23,14 +31,6 @@ matrix:
           sources: *sources
           packages:
             - clang-3.8
-
-    - os: linux
-      env: COMPILER_NAME=clang CXX=clang++-3.7 CC=clang-3.7
-      addons:
-        apt:
-          sources: *sources
-          packages:
-            - clang-3.7
 
 install:
     - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
