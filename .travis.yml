@@ -1,5 +1,5 @@
 dist: precise
-language: generic
+language: cpp
 
 matrix:
   include:
