@@ -6,7 +6,8 @@ namespace ns_memory {
     template <typename T>
     class shared_ptr final {
         struct meta_t {
-            int         count;
+            int count;
+
             meta_t(const T* cpObject): count(0), object(cpObject) {
             }
 
@@ -14,7 +15,7 @@ namespace ns_memory {
                 delete object;
             }
         private:
-            const T*    object;
+            const T* object;
         } *meta_;
     public:
         explicit shared_ptr(const T* object = nullptr);
