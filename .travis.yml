@@ -4,7 +4,7 @@ language: generic
 matrix:
   include:
     - os: linux
-      env: COMPILER_NAME=g++ CXX=g++-4.9 CC=gcc-4.9
+      env: COMPILER_NAME=g++ CXX=g++-4.8 CC=gcc-4.8
       addons:
         apt:
           source: &sources
@@ -13,7 +13,8 @@ matrix:
             - llvm-toolchain-precise
             - ubuntu-toolchain-r-test
           packages:
-            - gcc-4.9
+            - gcc-4.8
+            - g++-4.8
 
     - os: linux
       env: COMPILER_NAME=clang++ CXX=clang++-3.7 CC=clang-3.7
@@ -22,7 +23,6 @@ matrix:
           sources: *sources
           packages:
             - clang-3.7
-            - clang++-3.7
 
     - os: linux
       env: COMPILER_NAME=clang++ CXX=clang++-3.8 CC=clang-3.8
@@ -31,7 +31,6 @@ matrix:
           sources: *sources
           packages:
             - clang-3.8
-            - clang++-3.8
 
 install:
     - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
