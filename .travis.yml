@@ -3,10 +3,6 @@ language: generic
 
 addons:
     apt:
-#        packages:
-#            - g++-4.9
-#            - g++-5
-#            - clang-3.7
         sources: &sources
             - ubuntu-toolchain-r-test
             - llvm-toolchain-precise-3.7
@@ -14,8 +10,8 @@ addons:
 
 matrix:
     include:
-#        - os: osx
-#          compiler: clang
+        - os: osx
+          compiler: clang
         - os: linux
           compiler: gcc
           env: COMPILER_NAME=gcc CXX=g++-4.9 CC=gcc-4.9
@@ -50,10 +46,6 @@ matrix:
                 packages:
                     - clang-3.8
                 sources: *sources
-
-#        - os: linux
-#          compiler: clang
-#          env: COMPILER=clang++-3.7
 
 install:
     - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
