@@ -4,7 +4,7 @@ language: generic
 matrix:
   include:
     - os: linux
-      env: COMPILER_NAME=g++ CXX=g++-4.8 CC=gcc-4.8
+      env: COMPILER_NAME=g++ CXX=g++-5 CC=gcc-5
       addons:
         apt:
           source: &sources
@@ -12,8 +12,7 @@ matrix:
             - llvm-toolchain-precise-3.8
             - ubuntu-toolchain-r-test
           packages:
-            - gcc-4.8
-            - g++-4.8
+            - g++-5
 
     - os: linux
       env: COMPILER_NAME=clang CXX=clang++-3.7 CC=clang-3.7
