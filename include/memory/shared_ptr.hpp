@@ -7,11 +7,14 @@ namespace ns_memory {
     class shared_ptr final {
         struct meta_t {
             int         count;
-            const T*    object;
+            meta_t(const T* cpObject): count(0), object(cpObject) {
+            }
 
             ~meta_t() {
                 delete object;
             }
+        private:
+            const T*    object;
         } *meta_;
     public:
         explicit shared_ptr(const T* object = nullptr);
@@ -46,7 +49,7 @@ namespace ns_memory {
     shared_ptr<T>::shared_ptr(const T* object) {
         meta_ = object == nullptr
             ? nullptr
-            : new meta_t{.object = object};
+            : new meta_t{object};
         increment();
     }
 
@@ -97,7 +100,7 @@ namespace ns_memory {
         decrement();
         meta_ = object == nullptr
             ? nullptr
-            : new meta_t{.object = object};
+            : new meta_t{object};
         increment();
     }
 }
