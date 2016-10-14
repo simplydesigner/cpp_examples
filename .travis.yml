@@ -1,5 +1,5 @@
 dist: precise
-language: cpp
+language: generic
 
 addons:
     apt:
