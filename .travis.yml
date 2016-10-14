@@ -1,4 +1,4 @@
-dist: trusty
+dist: precise
 language: generic
 
 matrix:
@@ -8,9 +8,9 @@ matrix:
       addons:
         apt:
           source: &sources
-            - llvm-toolchain-trusty-3.9
-            - llvm-toolchain-trusty-3.8
-            - llvm-toolchain-trusty
+            - llvm-toolchain-precise-3.9
+            - llvm-toolchain-precise-3.8
+            - llvm-toolchain-precise
             - ubuntu-toolchain-r-test
           packages:
             - gcc-5
