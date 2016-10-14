@@ -10,9 +10,9 @@ matrix:
           packages:
             - g++-5
           source: &sources
+            - ubuntu-toolchain-r-test
             - llvm-toolchain-precise-3.7
             - llvm-toolchain-precise-3.8
-            - ubuntu-toolchain-r-test
 
 
     - os: linux
