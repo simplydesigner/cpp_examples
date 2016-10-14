@@ -7,6 +7,8 @@ addons:
             - ubuntu-toolchain-r-test
             - llvm-toolchain-precise-3.7
             - llvm-toolchain-precise-3.8
+cache:
+    apt: true
 
 matrix:
     include:
@@ -68,11 +70,6 @@ script:
     - BUILD_DIR="${TRAVIS_BUILD_DIR}/build"
     - mkdir -p "${BUILD_DIR}"
     - cd "${BUILD_DIR}"
-#    - |
-#      if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
-#        cmake -DCMAKE_CXX_COMPILER=$COMPILER ..
-#      else
     - cmake ..
-#     fi
     - make 
     - make test ARGS="-VV"
